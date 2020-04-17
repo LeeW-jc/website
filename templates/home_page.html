@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" href="/static/CSS/home1_page.css">
+</head>
+<body>
+    <video loop="-1" src="/topic/static?file=bili2.mp4" autoplay muted></video>
+    <div class="square first">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <div class="content">
+            <h2>Blog</h2>
+            <p>发表一些自己的想法, 观点, 类似于论坛或者微博.</p>
+            <a href="{{ url_for('topic.index') }}">Go</a>
+        </div>
+    </div>
+    <div class="square second">
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <div class="content">
+            <h2>Story</h2>
+            <p>提供观看一些玄幻小说的炫丽空间, 有《斗罗大陆》等.</p>
+            <a href="{{ url_for('story.index') }}">Go</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.addEventListener("mousemove", function (e) {
+            const body = document.querySelector("body");
+            const heart = document.createElement("span");
+            const x = e.clientX;
+            const y = e.clientY;
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            const size = Math.random() * 100;
+            heart.style.width = 20 + size + 'px';
+            heart.style.height = 20 + size + 'px';
+            body.appendChild(heart);
+            setTimeout(function () {
+                heart.remove();
+            },1500);
+        })
+    </script>
+</body>
+</html>

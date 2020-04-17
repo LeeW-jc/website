@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+     <form action="{{ url_for('story.add') }}" method="post">
+         <textarea rows="1" cols="8" name="page" placeholder="page"></textarea>
+         <br>
+         <textarea rows="5" cols="40" name="story_name" placeholder="story_name">dldl</textarea>
+         <br>
+         <textarea rows="5" cols="40" name="title" placeholder="title"></textarea>
+         <br>
+         <textarea rows="100" cols="100" name="content" placeholder="content"></textarea>
+         <br>
+         <button style="submit">button</button>
+     </form>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="Zh-CN" xmlns="http://www.w3.org/1999/html">
+  <head>
+	<meta charset="utf-8">
+    <title>11-Text-Smoke</title>
+    <link rel="stylesheet" href="/static/CSS/story.css">
+  </head>
+  <body>
+  	<div class="tag">
+		<section>
+			<video loop="-1" src="/static/IMG/smoke.mp4" autoplay muted></video>
+			<h1>
+				<span>S</span>
+				<span>T</span>
+				<span>O</span>
+				<span>R</span>
+				<span>Y</span>
+			</h1>
+		</section>
+	</div>
+	<div class="story-title">
+		<a href="{{ url_for('story.dldl_index') }}" style="{{ style_dldl }}">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<h3>斗罗大陆</h3>
+			<p>唐门外门弟子唐三，因偷学内门绝学为唐门所不容，跳崖明志时却发现没有死，反而以另外一个身份来到了另一个世界，一个属于武魂的世界，名叫斗罗大陆,这里没有魔法...</p>
+		</a>
+		<a href="{{ url_for('story.index') }}" style="{{ style_dpcq }}">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			<h3>斗破苍穹</h3>
+			<p>这里是属于斗气的世界，没有花俏艳丽的魔法，有的，仅仅是繁衍到巅峰的斗气！新书等级制度：斗者，斗师，大斗师，斗灵，斗王，斗皇，斗宗，斗尊，斗圣，斗帝...</p>
+		</a>
+	</div>
+	<section class="story-content">
+		<h2 class="js-title">{{ title }}</h2>
+		<p class="js-content">{{ content | safe }}</p>
+		<div class="btn">
+		  <button class="button last">last</button>
+		  <button class="button next">next</button>
+  		</div>
+	</section>
+	<svg>
+		<filter id="wavy">
+			<feTurbulence x="0" y="0" baseFrequency="0.02" numOctaves="5" seed="2">
+				<animate attributeName="baseFrequency" dur="60s" values="0.02;0.05;0.02" repeatCount="indefinite"/>
+			</feTurbulence>
+			<feDisplacementMap in="SourceGraphic" scale="30"/>
+		</filter>
+	</svg>
+  	<input class="tag_story" type="hidden" value="{{ tag_story }}">
+  </body>
+  <script src="https://cdn.bootcss.com/jquery/3.5.0/jquery.js"></script>
+  <script type="text/javascript" src="/static/JS/story.js"></script>
+</html>

@@ -1,0 +1,228 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom right,rgb(200,135,254),rgb(200,88,186));
+    overflow: hidden;
+}
+
+.container {
+    position: absolute;
+    height: 350px;
+    width: 720px;
+    background-color: rgb(100, 100, 150);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    border-radius: 15px;
+    box-shadow: 0 10px 50px 0px rgb(59,45,159);
+    overflow: hidden;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: 1s;
+}
+
+.container-show {
+    transform: translate(-50%,-50%) ;
+    opacity: 1;
+}
+
+.container:hover .title {
+    font-size: 20px;
+}
+
+.container:hover input {
+    transform: translate(0, -30%);
+}
+
+
+
+.container:hover .change-box {
+    height: 200px;
+}
+
+.container:hover .change-btn {
+    display: block;
+}
+
+.title {
+    color: #fff;
+    margin-top: 19px;
+    position: relative;
+    height: 35px;
+    width: 100%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 3px;
+    transition: .4s;
+    text-shadow: 0 0 10px rgba(200, 200, 200, .8);
+}
+
+.title span {
+    position: absolute;
+    left: 6%;
+    border-bottom: 3px solid rgb(237,221,22);
+}
+
+.input {
+    width: 500px;
+    height: 45px;
+    position: relative;
+    margin: 40px;
+    /* border-radius: 45px;
+    overflow: hidden; */
+}
+
+input {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    color: #fff;
+    /* box-sizing: border-box; */
+    padding-left: 0;
+    font-size: 16px;
+    background: none;
+    transition: .2s;
+    border-bottom: 1px solid rgb(199, 191, 219);
+}
+
+input:hover {
+  border-bottom-color: #fff;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(199, 115, 219);
+}
+
+
+button {
+    position: absolute;
+    top: 35%;
+    right: 5%;
+	width: 90px;
+	height: 90px;
+	border-width: 0;
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+    text-shadow: 0 0 10px rgba(200, 200, 200, .8);
+    background: linear-gradient(to right, #666600, #669900);
+    border-radius: 10px;
+}
+
+button:hover {
+    transform: scale(1.5);
+    border-radius: 100%;
+}
+
+button:focus {
+   outline:none;
+}
+
+.change-box {
+    position: absolute;
+    height: 0px;
+    width: 100%;
+    clip-path: polygon(100% 50%, 50% 100%, 100% 100%);
+    bottom: 0px;
+    transition: .4s;
+}
+
+.change-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    font-size: 20px;
+    display: none;
+    font-weight: 500;
+}
+
+.change-btn:hover {
+    text-shadow: 0px 0px 3px rgba(200, 200, 200, .8);
+    cursor: pointer;
+}
+
+.login-box input {
+    caret-color: white;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+.change-box {
+    background-color: rgba(10, 23, 59, 0.8);
+}
+
+.animate_login {
+    transform: rotate(-90deg);
+}
+
+.animate_sign {
+    transform: rotate(0deg) !important;
+}
+
+
+.login-box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom right,rgb(200,76,163), rgb(150,103,211));
+    transition: .4s;
+    z-index: 1;
+    transform-origin: 0 100%;
+}
+
+
+
+/* 注册框样式 */
+.sign-box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom right,rgb(100,103,200), rgb(200,103,100));
+    transform-origin: 0 100%;
+    transform: rotate(90deg);
+    transition: .4s;
+    z-index: 1;
+}
+
+.toLogin {
+    color: white;
+}
+
+.toSign {
+    color: white;
+}
+
+.container .message {
+    position: relative;
+    display: none;
+    height: 30px;
+    transition: .4s;
+    /*text-shadow: 0px 0px 10px #000;*/
+    color: #fff;
+    text-shadow: 0 0 10px rgba(200, 200, 200, .5);
+}
+
+.container .message span {
+    position: relative;
+    left: 5%;
+    /*color: #b70828;*/
+    font-size: 20px;
+}
+
+.container:hover .message {
+    display: block;
+}
+
+
+

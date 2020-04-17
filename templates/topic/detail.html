@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+    <link rel="stylesheet" href="/static/CSS/detail.css">
+
+</head>
+<body>
+        <div class="reveal">
+            <span class="title">Blog</span>
+        </div>
+        <div class="blog-box">
+            <span class="title-1">{{ t.title }}</span>
+            <span class="description d-content">内容</span>
+            <span class="content">{{ t.content | safe }}</span>
+            <a class="btn" type="submit" style="display: {{ display }}; background: {{ delete_background }};" href="{{ url_for('topic.delete', id=t.id, token=token) }}">删除</a>
+            <div class="replies_list">
+                <span class="description d-comment">评论</span>
+            </div>
+
+            <div class="reply_content">
+                <textarea class="content-2" data-uid="{{ id_user }}" data-tid="{{ t.id }}" rows="4" cols="30" placeholder="...输入评论"></textarea>
+                <div class="button">
+                    <ul></ul>
+                    <button class="btn-reply" type="submit">提交</button>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var backgroundSelector = {
+                1: "#FCE6C9",
+                2: "#708069",
+                3: "#B03060",
+                4: "#872657",
+                5: "#BDFCC9",
+                6: "#E3CF57",
+                7: "#082E54",
+                8: "#3D9140",
+                9: "#A066D3",
+                10: "#873324",
+                11: "#FF7D40",
+                12: "#33A1C9",
+            }
+            var ajax = function(method, path, data, responseCallback) {
+            var r = new XMLHttpRequest()
+            r.open(method, path, true)
+            r.setRequestHeader('Content-Type', 'application/json')
+            r.onreadystatechange = function() {
+                if(r.readyState === 4) {
+                    responseCallback(r.response)
+                }
+            }
+            data = JSON.stringify(data)
+            r.send(data)
+            }
+
+            var log = function() {
+                console.log.apply(console, arguments)
+            }
+
+            var e = function(sel) {
+                return document.querySelector(sel)
+            }
+
+            var apiAllReply = function(callback) {
+                var method = 'GET'
+                var path = '/reply/api/all?topic_id={{ tid }}'
+                ajax(method, path, '', callback)
+            }
+
+            var apiAddReply = function(form, callback) {
+                var method = 'POST'
+                var path = '/reply/api/add'
+                ajax(method, path, form, callback)
+            }
+
+            var template = function(r) {
+                var randomBackground = backgroundSelector[parseInt(Math.random() * 12 + 1)]
+                var m = `
+                    <div class="cell uid-${r.user_id}" style="background: ${randomBackground};">
+                        ${r.content}
+                    </div>
+                `
+                return m
+            }
+
+            var insertReply = function(r) {
+                var m = template(r)
+                var list = e('.replies_list')
+                list.insertAdjacentHTML('beforeend', m)
+            }
+
+            var loadReplies = function() {
+                apiAllReply(function(response) {
+                    var forms = JSON.parse(response)
+                    for (var i = 0; i < forms.length; i++) {
+                        var r = forms[i]
+                        insertReply(r)
+                    }
+                })
+            }
+
+            var bindBtnEvent = function() {
+                var btn = e('.btn-reply')
+                btn.addEventListener('click', function() {
+                    var content = e('.content-2')
+                    var tid = parseInt(content.dataset.tid)
+                    var uid = parseInt(content.dataset.uid)
+                    var form = {
+                        'topic_id': tid,
+                        'user_id': uid,
+                        'content': content.value,
+                    }
+                    apiAddReply(form, function(response) {
+                        var r = JSON.parse(response)
+                        insertReply(r)
+                        content.value = ''
+                    })
+                })
+            }
+
+            var bindEvents = function() {
+                bindBtnEvent()
+            }
+
+            var __main = function() {
+                bindEvents()
+                loadReplies()
+            }
+            __main()
+        </script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+server {
+    listen 80;
+    localhost / {
+        proxy_pass http://localhost:3000;
+    }
+}

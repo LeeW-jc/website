@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topic</title>
+    <link rel="stylesheet" href="/static/CSS/topic.css">
+
+</head>
+<body>
+    <div class="reveal">
+        <span class="title">Blog</span>
+    </div>
+    <a class="add" href="{{ url_for('topic.new') }}">New</a>
+    <div class="blog-box">
+        {% for t in topics %}
+            <div class="topic" style="background: {{ topic_background }};">
+                <div class="hehe">
+                    <li class="tag"><i class="fa fa-thumbs-up"></i></li>
+                    <a class="topic-title" href="{{ url_for('topic.detail', id=t.id) }}">
+                        {{ t.title | truncate(8, True) }}
+                    </a>
+                    <span class="information">
+                         {{ t.views }} / {{ t.created_time }}  作者:{{ t.user().username }}
+                    </span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

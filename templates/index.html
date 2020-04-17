@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Sign</title>
+    <link rel="stylesheet" href='/static/CSS/index2_style.css'>
+</head>
+<body>
+
+    <div class="container">
+       <div class="login-box">
+            <div class="title"><span>Login</span></div>
+            <form action="/login" method="post">
+                <div class="input">
+                    <input type="text" id="login-user" name="username" placeholder="Input your username">
+                </div>
+                <div class="input">
+                    <input type="password" id="login-password" name="password" placeholder="Input your password">
+                </div>
+
+                <button>登录</button>
+
+            </form>
+            <div class="message">
+                <span>{{ message }}</span>
+            </div>
+            <div class="change-box login-change">
+                <div class="change-btn toSign">
+                    <span>去注册</span>
+                </div>
+            </div>
+       </div>
+
+       <div class="sign-box">
+            <div class="title"><span>Sign</span></div>
+            <form action="/register" method="post">
+                <div class="input">
+                    <input type="text" id="sign-user" name="username" placeholder="Have A Good Name?">
+                </div>
+                <div class="input">
+                    <input type="password" id="sign-password" name="password" placeholder="Keep Secret">
+                </div>
+
+                <div class="btn sign-btn">
+                    <button>注册</button>
+                </div>
+            </form>
+            <div class="message">
+                <span>* 账号密码长度须大于3小于18</span>
+            </div>
+            <div class="change-box sign-change">
+                <div class="change-btn toLogin">
+                    <span>去登陆</span>
+                </div>
+            </div>
+       </div>
+    </div>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src='/static/JS/index_script.js'></script>
+</body>
+</html>
