@@ -8,9 +8,9 @@ story_name = 'dldl'
 with open('pppp.txt', 'rb') as f:
     file = f.read()
     ls = file.split(b'------------\r\n\r\n')
+    print(len(ls))
     ls.pop(0)
     ls.pop(-1)
-    print(len(ls))
     for l in ls:
         try:
             title, content = l.split(b'\r\n\r\n', 1)
