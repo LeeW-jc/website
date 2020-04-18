@@ -7,7 +7,7 @@ story_name = 'dldl'
 
 with open('pppp.txt', 'rb') as f:
     file = f.read()
-    ls = file.split(b'------------\r\n\r\n')
+    ls = file.split(b'------------\n\n')
     print(len(ls))
     ls.pop(0)
     ls.pop(-1)
