@@ -13,7 +13,7 @@ with open('pppp.txt', 'rb') as f:
     ls.pop(-1)
     for l in ls:
         try:
-            title, content = l.split(b'\r\n\r\n', 1)
+            title, content = l.split(b'\n\n', 1)
             print('title:', title.decode('gbk'))
             con = format_content(content.decode('gbk'))
             form = {
