@@ -7,6 +7,6 @@ server {
         root /root/resources/;
         autoindex on;
         access_log off;
-        expire 30d;
+        expires 30d;
     }
 }
