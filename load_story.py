@@ -3,9 +3,9 @@ from utils import format_content
 
 
 page = 1
-story_name = 'dldl'
+story_name = 'dpcq'
 
-with open('pppp.txt', 'rb') as f:
+with open('qqqq.txt', 'rb') as f:
     file = f.read()
     ls = file.split(b'------------\n\n')
     print(len(ls))
