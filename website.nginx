@@ -4,7 +4,7 @@ server {
         proxy_pass http://freshman.world:3000;
     }
     location ~^/(mp4|media)/ {
-        root /root/resources;
+        root /root/resources/;
         autoindex on;
         access_log off;
         expire 30d;
