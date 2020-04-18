@@ -24,7 +24,7 @@ video:hover {
 span
 {
     position: absolute;
-    background: url("/topic/static?file=heart");
+    background: url("/static/IMG/heart.png");
     pointer-events: none;
     transform: translate(-50%,-50%);
     width: 100px;

@@ -93,25 +93,25 @@ def delete():
 
 
 # 静态且不变的文件可以直接在程序启动时发给redis，在load路由只用get redis的数据就行.
-@main.route('/static')
-def load_video():
-    if request.args['file'] == 'bili2.mp4':
-        global jump_video
-        if jump_video:
-            with open('static/IMG/bili2.mp4', 'rb') as f:
-                ff = f.read()
-                redis_video_db.set('video', ff)
-            jump_video = False
-            return ff
-        return redis_video_db.get('video')
-    elif request.args['file'] == 'heart':
-        global jump_img
-        if jump_img:
-            with open('static/IMG/heart.png', 'rb') as f:
-                ff = f.read()
-                redis_video_db.set('img', ff)
-            jump_img = False
-            return ff
-        return redis_video_db.get('img')
-    else:
-        abort(404)
+# @main.route('/static')
+# def load_video():
+#     if request.args['file'] == 'bili2.mp4':
+#         global jump_video
+#         if jump_video:
+#             with open('static/IMG/bili2.mp4', 'rb') as f:
+#                 ff = f.read()
+#                 redis_video_db.set('video', ff)
+#             jump_video = False
+#             return ff
+#         return redis_video_db.get('video')
+#     elif request.args['file'] == 'heart':
+#         global jump_img
+#         if jump_img:
+#             with open('static/IMG/heart.png', 'rb') as f:
+#                 ff = f.read()
+#                 redis_video_db.set('img', ff)
+#             jump_img = False
+#             return ff
+#         return redis_video_db.get('img')
+#     else:
+#         abort(404)
