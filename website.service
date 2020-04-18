@@ -1,0 +1,12 @@
+[Unit]
+Description=my website
+
+[Service]
+User=root
+Type=forking
+WorkingDirectory=/root/test/website
+ExecStart=/usr/local/bin/gunicorn --bind 0.0.0.0:3000 app_my_web:app
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
