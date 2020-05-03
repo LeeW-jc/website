@@ -52,18 +52,18 @@ span
 .square.first {
     position: fixed;
     right: 8%;
-    top: 6%;
-    width: 260px;
-    height: 250px;
+    top: 20%;
+    width: 230px;
+    height: 230px;
     display: flex;
 }
 
 .square.second {
     position: fixed;
     right: 8%;
-    top: 54%;
-    width: 260px;
-    height: 250px;
+    top: 61%;
+    width: 230px;
+    height: 230px;
     display: flex;
 }
 
@@ -144,7 +144,7 @@ span
 
 .content {
     position: relative;
-    padding: 60px 60px;
+    padding: 40px 40px;
     color: #fff;
     align-items: center;
     transition: 0.5s;
@@ -174,3 +174,12 @@ span
     background: #fff;
     color: #000;
 }
+
+iframe {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 4%;
+    top : 0;
+}
+
