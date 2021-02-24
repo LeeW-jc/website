@@ -6,7 +6,7 @@ server {
         root /var/www/website;
     }
 
-    location ~* .(css|js|mp4|png)$ {
+    location ~* .(MP4|css|js|mp4|png)$ {
         expires 30d;
     }
 
