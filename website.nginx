@@ -2,11 +2,11 @@ server {
     listen 80;
     server_name localhost;
 
-    location ^~ /static/ {
+    location ^~/static/ {
         root /var/www/website/static;
     }
 
-    location ~* .(css|js|mp4|png)$ {
+    location ~*.(css|js|mp4|png)$ {
         expires 30d;
     }
 
