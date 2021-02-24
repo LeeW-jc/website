@@ -1,5 +1,15 @@
 server {
     listen 80;
+    server_name localhost;
+
+    location ^~ /static/ {
+        root /root/test/website/static;
+    }
+
+    location ~* .(css|js|mp4|png)$ {
+        expires 30d;
+    }
+
     location / {
         proxy_pass http://freshman.world:3000;
     }

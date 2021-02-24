@@ -116,10 +116,10 @@ class Mongua(object):
     @classmethod
     def update(cls, form, **kwargs):
         name = cls.__name__
-        dict = {
+        updated = {
             '$set': form,
         }
-        mongua.db[name].update_one(kwargs, dict)
+        mongua.db[name].update_one(kwargs, updated)
         return cls.find_by(**kwargs)
 
     @classmethod
