@@ -252,7 +252,7 @@ a span:nth-child(4)::before {
 
 .btn {
     position: relative;
-    top: 172px;
+    top: 165px;
 }
 
 .btn button {
@@ -265,7 +265,7 @@ a span:nth-child(4)::before {
     border: 0;
     text-align: center;
     line-height: 60px;
-    color: #ffffff;
+    color: #000000;
     font-size: 24px;
     text-transform: uppercase;
     text-decoration: none;
